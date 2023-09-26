@@ -1,2 +1,4 @@
 # Blog Client
-添加关键页面路由，使用createBrowserRouter创建路由
+
+npm start
+启用app 打开http://localhost:5173/在浏览中查看它

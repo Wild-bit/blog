@@ -6,7 +6,7 @@ import Single from "./pages/Single";
 import Write from "./pages/Write";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-
+import "./style.scss";
 // 组件采用大驼峰命名
 const Layout = () => {
   return (
@@ -50,7 +50,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <div className="app">
-      <div className="containr">
+      <div className="container">
         <RouterProvider router={router} />
       </div>
     </div>
