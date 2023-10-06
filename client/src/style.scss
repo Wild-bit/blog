@@ -1,4 +1,7 @@
-$lightGreen: #b9e7e7;
+$bgColor: #292929;
+$fontColor1: rgba(255, 255, 255, 1);
+$fontColor2: rgba(255, 255, 255, 0.6);
+$fontColor3: rgba(255, 255, 255, 0.45);
 
 * {
   margin: 0;
@@ -10,14 +13,21 @@ a {
 }
 
 .app {
+  background: $bgColor;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+
   .container {
+    width: 1024px;
+
     .auth {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      background-color: $lightGreen;
+      background-color: $bgColor;
 
       h1 {
         font-size: 20px;
@@ -70,6 +80,8 @@ a {
   }
 
   .navbar {
+    margin: 0 auto;
+
     .container {
       padding: 10px 0px;
       display: flex;
@@ -89,17 +101,31 @@ a {
         align-items: center;
         gap: 10px;
 
+        .link {
+          color: $fontColor3;
+
+          &:hover {
+            color: #ffffff;
+          }
+        }
+
         h6 {
           font-size: 16px;
           font-weight: 300;
         }
 
+        .userName {
+          cursor: pointer;
+          color: $fontColor3;
+        }
+
         span {
           cursor: pointer;
+          color: $fontColor3;
         }
 
         .write {
-          background-color: $lightGreen;
+          background-color: $bgColor;
           width: 50px;
           height: 50px;
           border-radius: 50%;
@@ -110,10 +136,299 @@ a {
           border: 1px solid white;
 
           &:hover {
+            background-color: #000000;
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    margin-top: 100px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    color: $fontColor3;
+
+    img {
+      height: 50px;
+      border-radius: 50%;
+    }
+  }
+
+  //HOME
+
+  .home {
+    .posts {
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 150px;
+
+      .post {
+        display: flex;
+        gap: 100px;
+
+        &:nth-child(2n + 1) {
+          flex-direction: row-reverse;
+        }
+
+        .img {
+          flex: 2;
+          position: relative;
+          z-index: 1;
+
+          &::after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color: #323232;
+            position: absolute;
+            top: 20px;
+            left: -20px;
+            z-index: -1;
+          }
+
+          img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+          }
+        }
+
+        .content {
+          flex: 3;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          h1 {
+            font-size: 48px;
+            color: $fontColor1;
+          }
+
+          p {
+            font-size: 18px;
+            color: $fontColor2;
+          }
+
+          button {
+            width: max-content;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            background-color: $bgColor;
+            border: 1px solid $fontColor3;
+            color: $fontColor3;
+
+            &:hover {
+              color: $fontColor1;
+              border: 1px solid $fontColor1;
+              background-color: $bgColor;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Single
+  .single {
+    display: flex;
+    gap: 50px;
+
+    .content {
+      flex: 5;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+      }
+
+      .user {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        .info {
+          font-size: 14px;
+          color: $fontColor3;
+
+          span {
+            color: $fontColor2;
+            font-weight: bold;
+            font-size: 16px;
+          }
+        }
+
+        .edit {
+          display: flex;
+          gap: 5px;
+
+          img {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+          }
+        }
+
+      }
+
+      h1 {
+        font-size: 42px;
+        color: $fontColor1;
+      }
+
+      p {
+        text-align: justify;
+        line-height: 30px;
+        color: $fontColor2;
+      }
+    }
+
+    .menu {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+
+      h1 {
+        font-size: 20px;
+        color: $fontColor1;
+      }
+
+      .post {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        img {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+        }
+
+        h2 {
+          color: $fontColor1;
+        }
+
+        p {
+          color: $fontColor3;
+          text-align: justify;
+        }
+
+        button {
+          width: max-content;
+          padding: 7.5px 15px;
+          border: none;
+          cursor: pointer;
+          background-color: $bgColor;
+          border: 1px solid $fontColor3;
+          color: $fontColor3;
+
+          &:hover {
+            color: $fontColor1;
+            border: 1px solid $fontColor1;
+            background-color: $bgColor;
+          }
+        }
+      }
+    }
+  }
+
+  // Write
+  .add {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+
+    .content {
+      flex: 5;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      input {
+        padding: 10px;
+        border: 1px solid lightgray;
+      }
+
+      .editorContainer {
+        height: 300px;
+        overflow: scroll;
+        border: 1px solid lightgray;
+
+        .editor {
+          height: 100%;
+          border: none;
+        }
+      }
+    }
+
+    .menu {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .item {
+        border: 1px solid lightgray;
+        padding: 10px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        font-size: 12px;
+        color: #555;
+
+        h1 {
+          font-size: 20px;
+        }
+
+        .file {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+
+        .buttons {
+          display: flex;
+          justify-content: space-between;
+
+          :first-child {
+            cursor: pointer;
             color: teal;
             background-color: white;
             border: 1px solid teal;
+            padding: 3px 5px;
           }
+
+          :last-child {
+            cursor: pointer;
+            color: white;
+            background-color: teal;
+            border: 1px solid teal;
+            padding: 3px 5px;
+          }
+        }
+
+        .cat {
+          display: flex;
+          align-items: center;
+          gap: 2px;
+          color: teal;
         }
       }
     }

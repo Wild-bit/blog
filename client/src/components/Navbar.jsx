@@ -1,12 +1,16 @@
 import React from "react";
 import { getAssetsFile } from "../utils/utils";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const handleHome = () => {
+    navigate("/");
+  };
   return (
     <div className="navbar">
       <div className="container">
-        <div className="logo">
+        <div className="logo" onClick={handleHome}>
           <img src={getAssetsFile("logo.png")} alt="" />
         </div>
         <div className="links">
@@ -28,6 +32,13 @@ const Navbar = () => {
           <Link className="link" to="/?cat=food">
             <h6>FOOD</h6>
           </Link>
+          <span className="userName">John</span>
+          <span>Logout</span>
+          <span className="write">
+            <Link className="link" to="/write">
+              Write
+            </Link>
+          </span>
         </div>
       </div>
     </div>
