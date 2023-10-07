@@ -363,17 +363,24 @@ a {
 
       input {
         padding: 10px;
-        border: 1px solid lightgray;
+        outline: none;
+        border: 1px solid $fontColor2;
       }
 
       .editorContainer {
         height: 300px;
         overflow: scroll;
-        border: 1px solid lightgray;
+        border: 1px solid $fontColor2;
+        color: $fontColor1;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
 
         .editor {
           height: 100%;
           border: none;
+
         }
       }
     }
@@ -385,14 +392,14 @@ a {
       gap: 20px;
 
       .item {
-        border: 1px solid lightgray;
+        border: 1px solid $fontColor1;
         padding: 10px;
         flex: 1;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         font-size: 12px;
-        color: #555;
+        color: $fontColor1;
 
         h1 {
           font-size: 20px;
@@ -409,17 +416,17 @@ a {
 
           :first-child {
             cursor: pointer;
-            color: teal;
-            background-color: white;
-            border: 1px solid teal;
+            color: $fontColor2;
+            background-color: $bgColor;
+            border: 1px solid $fontColor1;
             padding: 3px 5px;
           }
 
           :last-child {
             cursor: pointer;
-            color: white;
-            background-color: teal;
-            border: 1px solid teal;
+            color: #000000;
+            background-color: $fontColor1;
+            border: 1px solid #000000;
             padding: 3px 5px;
           }
         }
@@ -428,7 +435,7 @@ a {
           display: flex;
           align-items: center;
           gap: 2px;
-          color: teal;
+          color: $fontColor1;
         }
       }
     }
